@@ -39,7 +39,7 @@ export function Contact() {
                   </div>
                   <div className="text-left overflow-hidden">
                     <p className="text-sm text-muted-foreground mb-0.5">Email</p>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=akhilmanikantan1@gmail.com" target="_blank" rel="noopener noreferrer" className="font-medium hover:text-primary transition-colors truncate block">
+                    <a href="mailto:akhilmanikantan1@gmail.com" target="_blank" rel="noopener noreferrer" className="font-medium hover:text-primary transition-colors truncate block">
                       akhilmanikantan1@gmail.com
                     </a>
                   </div>
@@ -58,7 +58,7 @@ export function Contact() {
 
               <div className="w-full max-w-sm mx-auto mt-4">
                 <Button size="lg" className="w-full gap-2 text-lg h-14 p-0" asChild>
-                  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=akhilmanikantan1@gmail.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 w-full h-full px-8">
+                  <a href="mailto:akhilmanikantan1@gmail.com" className="flex items-center justify-center gap-2 w-full h-full px-8">
                     Send an Email
                     <Send size={20} />
                   </a>
