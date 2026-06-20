@@ -3,16 +3,16 @@
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { Database, LineChart, Brain, Code2 } from "lucide-react";
+import { Database, LineChart, Brain, Code2, User } from "lucide-react";
 
 export function About() {
-  const skills = [
-    { name: "Python", level: 85 },
-    { name: "SQL", level: 75 },
-    { name: "Power BI", level: 78 },
-    { name: "Machine Learning", level: 72 },
-    { name: "Pandas/NumPy", level: 80 },
-    { name: "Scikit-learn", level: 72 },
+  const skillCategories = [
+    { category: "Programming", skills: ["Java", "Python", "SQL"] },
+    { category: "Frontend", skills: ["HTML", "CSS", "React"] },
+    { category: "Libraries", skills: ["Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn"] },
+    { category: "Data Analysis", skills: ["Data Cleaning", "Data Preprocessing", "Exploratory Data Analysis (EDA)"] },
+    { category: "Data Visualization", skills: ["Power BI", "Excel Dashboards"] },
+    { category: "Tools", skills: ["Git", "GitHub", "VS Code", "Jupyter Notebook", "Excel"] }
   ];
 
   const floatingIcons = [
@@ -27,24 +27,23 @@ export function About() {
       <div className="container mx-auto px-6">
         <SectionHeading 
           title="About Me" 
-          subtitle="Passionate about leveraging data to drive decisions and building intelligent systems."
+          subtitle="Aspiring Software Developer and Data Analyst Passionate About Continuous Learning and Building Intelligent Solutions."
         />
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-12 gap-12 items-start max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative"
+            className="relative lg:col-span-5 flex justify-center lg:justify-end"
           >
-            <GlassCard className="p-8 relative z-10">
-
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                Aspiring Data Analyst & AI Developer with a strong interest in data analytics, machine learning, and intelligent systems. Skilled in Python, SQL, Power BI, and computer vision with hands-on experience in building real-world AI and analytics projects.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                Passionate about transforming data into meaningful insights, developing interactive dashboards, and creating AI-driven solutions to solve real-world problems. Continuously learning and exploring modern technologies in AI, Data Science, and analytics.
+            <GlassCard className="p-7 relative z-10 w-full max-w-[420px] flex flex-col items-start">
+              <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary mb-6">
+                <User size={24} />
+              </div>
+              <p className="text-muted-foreground leading-relaxed text-base">
+                Final-year B.Tech student in Artificial Intelligence and Data Science with hands-on experience in data analysis and machine learning through internships and academic projects. Passionate about continuous learning and seeking opportunities in Data Analytics and Software Development.
               </p>
             </GlassCard>
 
@@ -74,34 +73,39 @@ export function About() {
             </div>
           </motion.div>
 
-          <div className="space-y-6">
-            <h3 className="text-2xl font-bold mb-6">Technical Skills</h3>
-            {skills.map((skill, index) => (
-              <motion.div 
-                key={skill.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <div className="flex justify-between mb-2">
-                  <span className="font-medium">{skill.name}</span>
-                  <span className="text-muted-foreground">{skill.level}%</span>
-                </div>
-                <div className="h-3 w-full bg-secondary rounded-full overflow-hidden">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${skill.level}%` }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, delay: 0.2 + index * 0.1, ease: "easeOut" }}
-                    className="h-full bg-gradient-to-r from-neon-blue via-neon-purple to-neon-cyan relative"
-                  >
-                    <div className="absolute top-0 right-0 bottom-0 w-4 bg-white/30 blur-[2px]" />
-                  </motion.div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7 flex justify-center lg:justify-start lg:pl-12"
+          >
+            <div className="w-full max-w-[550px] flex flex-col pt-2 lg:pt-0">
+              <h3 className="text-2xl font-bold mb-6">Technical Skills</h3>
+              <div className="space-y-6">
+                {skillCategories.map((cat, index) => (
+                  <div key={cat.category}>
+                    <h4 className="text-sm font-semibold text-primary/80 mb-3 uppercase tracking-wider">{cat.category}</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {cat.skills.map((skill, sIndex) => (
+                        <motion.div 
+                          key={skill}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.3, delay: index * 0.1 + sIndex * 0.05 }}
+                          whileHover={{ scale: 1.05 }}
+                          className="px-3 py-1.5 rounded-md border border-primary/20 bg-primary/5 text-sm font-medium hover:bg-primary/20 hover:border-primary/50 transition-all cursor-default"
+                        >
+                          {skill}
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

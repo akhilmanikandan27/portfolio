@@ -8,7 +8,7 @@ import { Award, ExternalLink } from "lucide-react";
 export function Certifications() {
   const certs = [
     {
-      title: "Data Analytics Virtual Experience",
+      title: "Data Analytics Virtual Experience Program",
       issuer: "Deloitte Australia",
       date: "2023",
       link: "#"
@@ -20,15 +20,15 @@ export function Certifications() {
       link: "#"
     },
     {
-      title: "AI Internship Certification",
-      issuer: "RINEX",
-      date: "2023",
+      title: "Data Science Internship",
+      issuer: "SMEC Labs",
+      date: "2025",
       link: "#"
     },
     {
-      title: "Data Science Internship Certification",
-      issuer: "SMEC Labs",
-      date: "2022",
+      title: "Artificial Intelligence Internship",
+      issuer: "RINEX",
+      date: "2025",
       link: "#"
     }
   ];

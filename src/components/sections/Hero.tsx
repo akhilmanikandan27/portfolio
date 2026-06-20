@@ -13,12 +13,9 @@ export function Hero() {
   const [loopNum, setLoopNum] = useState(0);
 
   const words = [
-    "Building Intelligent Data-Driven Solutions",
-    "Turning Data into Meaningful Insights",
-    "Driving Decisions Through Data",
-    "Solving Real-World Problems with Data",
-    "Developing Real-Time AI Applications",
-    "Passionate About Data Analytics & AI"
+    "Passionate About Software Development and Data Analytics",
+    "Continuously Learning and Building Real-World Solutions",
+    "Turning Data into Meaningful Insights"
   ];
 
   useEffect(() => {
@@ -93,8 +90,7 @@ export function Hero() {
           </div>
           
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            I specialize in transforming complex data into actionable insights and building intelligent machine learning models. 
-            Passionate about solving real-world problems through data.
+            Aspiring Software Developer and Data Analyst passionate about continuous learning and leveraging data and technology to solve real-world problems.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">

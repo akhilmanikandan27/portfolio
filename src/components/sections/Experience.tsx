@@ -11,82 +11,99 @@ export function Experience() {
       role: "AI Intern",
       company: "RINEX",
       period: "Jan 2025 - Feb 2025",
-      description:
-        "Worked on developing machine learning models and analyzing datasets to extract actionable insights. Collaborated with a team of interns to build predictive solutions and presented findings to senior engineers.",
-      skills: ["Python", "Machine Learning", "Data Analysis", "Teamwork"],
+      description: [
+        "Developed basic machine learning models using Python and Scikit-learn.",
+        "Performed data preprocessing, feature selection, and model evaluation."
+      ],
+      skills: ["Python", "Machine Learning", "Data Analysis"]
     },
     {
       role: "Data Science Intern",
       company: "SMEC Labs",
       period: "Jun 2025 - Jul 2025",
-      description:
-        "Assisted in data cleaning, preprocessing, and exploratory data analysis using Python and Pandas. Created interactive dashboards to visualize key performance indicators and improve data accessibility.",
-      skills: ["Data Cleaning", "Pandas", "Data Visualization", "Power BI"],
-    },
+      description: [
+        "Cleaned and analyzed datasets using Python and Excel.",
+        "Created visualizations and dashboards using Power BI.",
+        "Presented insights using charts and reports for effective decision-making."
+      ],
+      skills: ["Data Cleaning", "Pandas", "Data Visualization", "Power BI"]
+    }
   ];
 
   return (
-    <section className="py-24 relative" id="experience">
+    <section className="py-24 relative bg-background/50" id="experience">
       <div className="container mx-auto px-6">
         <SectionHeading 
           title="Experience" 
-          subtitle="My professional journey and hands-on experience in the field."
+          subtitle="My professional journey and internships."
         />
 
-        <div className="max-w-4xl mx-auto relative">
-          {/* Vertical Line */}
-          <div className="absolute left-[19px] md:left-1/2 top-0 bottom-0 w-[2px] bg-primary/20 -translate-x-1/2 rounded-full hidden md:block" />
-          
-          {experiences.map((exp, index) => (
-            <div key={index} className="relative mb-12 last:mb-0">
-              <div className={`flex flex-col md:flex-row items-center ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}>
-                
-                {/* Timeline Dot */}
-                <div className="absolute left-0 md:left-1/2 top-6 -translate-x-1/2 w-10 h-10 rounded-full glass border-2 border-primary flex items-center justify-center z-10 hidden md:flex">
-                  <Briefcase size={16} className="text-primary" />
-                </div>
-                
-                {/* Content Card */}
-                <div className={`w-full md:w-1/2 ${index % 2 === 0 ? "md:pl-12" : "md:pr-12"}`}>
+        <div className="relative max-w-5xl mx-auto py-8">
+          {/* Vertical Timeline Line */}
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-[1px] h-full bg-primary/20" />
+
+          <div className="space-y-12">
+            {experiences.map((exp, index) => {
+              const isEven = index % 2 === 0;
+              return (
+                <div key={index} className={`relative flex flex-col md:flex-row items-center justify-between ${isEven ? 'md:flex-row-reverse' : ''}`}>
+                  
+                  {/* Timeline Node */}
+                  <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-background border border-primary/30 items-center justify-center z-10 text-primary shadow-[0_0_15px_rgba(var(--primary),0.15)]">
+                    <Briefcase size={16} />
+                  </div>
+
+                  {/* Empty space for opposite side */}
+                  <div className="hidden md:block w-5/12" />
+
+                  {/* Card */}
                   <motion.div
-                    initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.6, type: "spring", bounce: 0.3 }}
+                    initial={{ opacity: 0, x: isEven ? 30 : -30, y: 20 }}
+                    whileInView={{ opacity: 1, x: 0, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    className="w-full md:w-5/12"
                   >
-                    <GlassCard className="relative overflow-hidden group">
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-110" />
+                    <GlassCard className="p-8 relative overflow-hidden group hover:border-primary/40 transition-all duration-300">
+                      {/* Top Right Accent Glow */}
+                      <div className="absolute -top-12 -right-12 w-32 h-32 bg-primary/10 blur-2xl rounded-full pointer-events-none group-hover:bg-primary/20 transition-colors duration-500" />
                       
-                      <div className="flex flex-wrap justify-between items-start mb-4 gap-2">
+                      {/* Geometric Corner Accent */}
+                      <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary/10 to-transparent opacity-50 pointer-events-none" />
+
+                      <div className="flex flex-wrap items-start justify-between gap-4 mb-6 relative z-10">
                         <div>
-                          <h3 className="text-xl font-bold text-foreground">{exp.role}</h3>
-                          <p className="text-primary font-medium">{exp.company}</p>
+                          <h3 className="text-2xl font-bold text-white mb-1">{exp.role}</h3>
+                          <div className="text-primary font-semibold text-sm tracking-wide uppercase">{exp.company}</div>
                         </div>
-                        <span className="px-3 py-1 rounded-full bg-secondary text-sm font-medium">
+                        <div className="px-4 py-1.5 rounded-full bg-background/50 border border-border/50 text-muted-foreground text-xs font-medium backdrop-blur-sm">
                           {exp.period}
-                        </span>
+                        </div>
                       </div>
-                      
-                      <p className="text-muted-foreground mb-6">
-                        {exp.description}
-                      </p>
-                      
-                      <div className="flex flex-wrap gap-2">
-                        {exp.skills.map((skill) => (
-                          <span 
-                            key={skill}
-                            className="text-xs font-medium px-2.5 py-1 rounded-md bg-background border border-border"
-                          >
-                            {skill}
-                          </span>
+
+                      <div className="space-y-2 mb-8 relative z-10">
+                        {exp.description.map((item, i) => (
+                          <p key={i} className="text-muted-foreground/90 text-sm leading-relaxed">
+                            {item}
+                          </p>
                         ))}
                       </div>
+
+                      {exp.skills && (
+                        <div className="flex flex-wrap gap-2 relative z-10">
+                          {exp.skills.map(skill => (
+                            <span key={skill} className="px-3 py-1 text-xs rounded border border-border/60 text-muted-foreground/80 bg-background/30 hover:text-primary hover:border-primary/30 transition-colors cursor-default">
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      )}
                     </GlassCard>
                   </motion.div>
                 </div>
-              </div>
-            </div>
-          ))}
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
