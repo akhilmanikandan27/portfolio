@@ -14,7 +14,7 @@ export function Hero() {
 
   const words = [
     "Passionate About Software Development and Data Analytics",
-    "Continuously Learning and Building Real-World Solutions",
+    "Continuously learning and building practical solutions with technology.",
     "Turning Data into Meaningful Insights"
   ];
 
