@@ -8,7 +8,7 @@ import { Database, LineChart, Brain, Code2, User } from "lucide-react";
 export function About() {
   const skillCategories = [
     { category: "Programming", skills: ["Java", "Python", "SQL"] },
-    { category: "Frontend", skills: ["HTML", "CSS", "React"] },
+    { category: "Frontend", skills: ["HTML", "CSS"] },
     { category: "Libraries", skills: ["Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn"] },
     { category: "Data Analysis", skills: ["Data Cleaning", "Data Preprocessing", "Exploratory Data Analysis (EDA)"] },
     { category: "Data Visualization", skills: ["Power BI", "Excel Dashboards"] },
@@ -43,7 +43,7 @@ export function About() {
                 <User size={24} />
               </div>
               <p className="text-muted-foreground leading-relaxed text-base">
-                Final-year B.Tech student in Artificial Intelligence and Data Science with hands-on experience in data analysis and machine learning through internships and academic projects. Passionate about continuous learning and seeking opportunities in Data Analytics and Software Development.
+                Final-year B.Tech student in Artificial Intelligence and Data Science with hands-on experience in data analysis and machine learning through internships and academic projects. Passionate about continuous learning and seeking opportunities in Software Development and Data Analytics.
               </p>
             </GlassCard>
 

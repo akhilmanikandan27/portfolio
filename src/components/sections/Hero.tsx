@@ -57,7 +57,7 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20" id="home">
       <ParticleBackground />
-      
+
       <div className="container mx-auto px-6 relative z-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -65,34 +65,34 @@ export function Hero() {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto space-y-8"
         >
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="inline-block px-4 py-1.5 mb-4 rounded-full border border-primary/30 glass text-sm font-medium"
           >
-            Aspiring Data Analyst & AI Developer
+            Aspiring Software Developer & Data Analyst
           </motion.div>
-          
+
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight">
             Hi, I&apos;m <span className="text-gradient">Akhil M</span>
           </h1>
-          
+
           <div className="h-12 md:h-16 flex items-center justify-center">
             <h2 className="text-2xl md:text-4xl text-muted-foreground font-medium">
               {typedText}
-              <motion.span 
+              <motion.span
                 animate={{ opacity: [0, 1, 0] }}
                 transition={{ repeat: Infinity, duration: 0.8 }}
                 className="inline-block w-[3px] h-[1em] bg-primary ml-1 align-middle"
               />
             </h2>
           </div>
-          
+
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Aspiring Software Developer and Data Analyst passionate about continuous learning and leveraging data and technology to solve real-world problems.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Button size="lg" className="w-full sm:w-auto" asChild>
               <a href="#projects">View Projects</a>
@@ -104,7 +104,7 @@ export function Hero() {
               </a>
             </Button>
           </div>
-          
+
           <div className="flex items-center justify-center gap-6 pt-12">
             {[
               { icon: FaGithub, href: "https://github.com/akhilmanikandan27", label: "GitHub" },
@@ -129,7 +129,7 @@ export function Hero() {
           </div>
         </motion.div>
       </div>
-      
+
 
     </section>
   );
